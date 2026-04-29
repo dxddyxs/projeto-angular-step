@@ -1,13 +1,7 @@
 
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface Usuario {
-  id: number;
-  nome: string;
-  email: string;
-  salario: number;
-}
+import { Usuario } from '../services/usuario';
 
 @Component({
   selector: 'app-painel-adm',
@@ -16,10 +10,19 @@ interface Usuario {
   templateUrl: './painel-adm.html',
   styleUrl: './painel-adm.css'
 })
-export class PainelAdm {
-  usuarios: Usuario[] = [
-    { id: 1, nome: 'Alice', email: 'alice@example.com', salario: 5000 },
-    { id: 2, nome: 'Bob', email: 'bob@example.com', salario: 2000 },
-    { id: 3, nome: 'Charlie', email: 'charlie@example.com', salario: 9000 }
-  ];
+export class PainelAdm implements OnInit {
+  private usuarioService = inject(Usuario);
+
+  usuarios: any[] = [];
+
+  ngOnInit(): void {
+    this.usuarioService.listarUsuarios().subscribe({
+      next: (resposta) => {
+        this.usuarios = resposta;
+      },
+      error: (erro) => {
+        console.error('Erro ao buscar usuários:', erro);
+      }
+    });
+  }
 }
