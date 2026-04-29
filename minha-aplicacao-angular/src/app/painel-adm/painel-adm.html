@@ -1,11 +1,11 @@
-<h2>Lista de Usuários</h2>
+<h2>Painel Administrativo</h2>
+
 <ul>
     @for (usuario of usuarios; track usuario.id) {
     <li>
-        <strong>{{ usuario.nome | uppercase }}</strong> - {{ usuario.email }} - Salário: {{ usuario.salario |
-        currency:'BRL' }}
+        <strong>Nome:</strong> {{ usuario.name.firstname }} {{ usuario.name.lastname }} <br>
+        <strong>Username:</strong> {{ usuario.username }} <br>
+        <strong>Email:</strong> {{ usuario.email }}
     </li>
-    } @empty {
-    <li>Nenhum usuário encontrado</li>
     }
 </ul>

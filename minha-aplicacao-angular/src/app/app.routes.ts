@@ -22,7 +22,15 @@ export const routes: Routes = [
             ),
     },
     {
+        path: 'painel-adm',
+        loadComponent: () =>
+            import('./painel-adm/painel-adm').then(
+                (m) => m.PainelAdm
+            ),
+    },
+    {
         path: '**',
         redirectTo: 'produtos',
     }
 ];
+
