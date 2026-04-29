@@ -2,7 +2,8 @@
 <ul>
     @for (usuario of usuarios; track usuario.id) {
     <li>
-        <strong>{{ usuario.nome }}</strong> - {{ usuario.email }}
+        <strong>{{ usuario.nome | uppercase }}</strong> - {{ usuario.email }} - Salário: {{ usuario.salario |
+        currency:'BRL' }}
     </li>
     } @empty {
     <li>Nenhum usuário encontrado</li>
