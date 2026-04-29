@@ -1,1 +1,10 @@
-<p>painel-adm works!</p>
+<h2>Lista de Usuários</h2>
+<ul>
+    @for (usuario of usuarios; track usuario.id) {
+    <li>
+        <strong>{{ usuario.nome }}</strong> - {{ usuario.email }}
+    </li>
+    } @empty {
+    <li>Nenhum usuário encontrado</li>
+    }
+</ul>
