@@ -47,5 +47,14 @@ export const routes: Routes = [
     {
         path: '**',
         redirectTo: 'produtos',
-    }
+    },
+
+    {
+        path: 'login-usuario',
+        loadComponent: () =>
+            import('./pages/login-usuario/login-usuario').then(
+                (m) => m.LoginUsuario
+            ),
+    },
+
 ];
