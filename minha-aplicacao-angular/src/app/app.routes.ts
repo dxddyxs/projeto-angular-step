@@ -38,7 +38,23 @@ export const routes: Routes = [
             ),
     },
     {
+        path: 'cadastro-usuario',
+        loadComponent: () =>
+            import('./pages/cadastro-usuario/cadastro-usuario').then(
+                (m) => m.CadastroUsuario
+            ),
+    },
+    {
         path: '**',
         redirectTo: 'produtos',
-    }
+    },
+
+    {
+        path: 'login-usuario',
+        loadComponent: () =>
+            import('./pages/login-usuario/login-usuario').then(
+                (m) => m.LoginUsuario
+            ),
+    },
+
 ];
